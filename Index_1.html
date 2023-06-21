@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Нахождение минимума двух чисел</title>
+</head>
+<body>
+	<input id="num1">
+	<input id="num2">
+	<button onclick="FindMin()">Рассчиать</button>
+	<p id ="result">2</p>
+
+	<script>
+		function FindMin() {
+			var num1 = document.getElementById('num1').value
+			var num2 = document.getElementById('num2').value
+
+			var minNum = Math.min(num1, num2);
+
+			document.getElementById("result").innerHTML = minNum;
+		}
+	</script>
+	
+</body>
+</html>

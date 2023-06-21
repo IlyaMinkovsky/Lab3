@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Возраст</title>
+	</head>
+	<body>
+		<script>
+			var age;
+			while(true){
+				age = prompt("Сколько вам лет?");
+				if (age !=null)
+				{
+					if(confirm('Вы уверены, что вам ' + age + ' лет?'))
+					{
+						break;
+					}
+				}
+				else
+				{
+					alert('Введите ваш возраст')
+				}
+			}
+			alert("Спасибо!")
+		</script>
+	</body>
+</html>

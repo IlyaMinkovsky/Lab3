@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Резюме</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				color: #333;
+				background-color: #f2f2f2;
+				padding: 20px;
+			}
+
+			h1 {
+				text-align: center;
+				font-size: 2em;
+				text-shadow: 2px 2px 4px #aaa;
+			}
+
+			img {
+				width: 130px;
+				height: 130px;
+				display: inline-block;
+				margin: 0 auto;
+			}
+
+			input[type = button]:hover{
+				background-color: #ddd;
+			}
+
+			.bordered {
+				border: 1px solid #ccc;
+				padding: 20px;
+				margin: 10px 0;
+			}
+
+			#success{
+				display: none;
+				color: gray;
+				margin-top: 20px;
+			}
+
+			.checkbox {
+				margin: 10px 0;
+			}
+
+			#success{
+				display: none;
+				color: gray;
+				margin-top: 20px;
+			}
+
+			.checkbox {
+				margin: 10px 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>Резюме</h1>
+		<img src = "Фото.jpg" alt = "Фото">
+		<div id = "name" class="bordered">Имя: <span id = "firstName">Илья</span></div>
+		<div id = "surname" class="bordered">Фамилия: <span id = "lastName">Минковский</span></div>
+		<div class = "bordered">Возраст: <span id = "age">23</span></div>
+
+		<div id = "form">
+			<input type="text" id="newFirstName" placeholder = "Изменить имя">
+			<input type="text" id="newAge" placeholder = "Изменить возраст">
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" id="checkbox">Я согласен с условиями анкетирования
+				</label>
+			</div>
+				<textarea id = "text" placeholder = "Комментарий"></textarea>
+				<input type="button" value="Окей" onclick="fillForm()">
+		</div>
+
+		<div id = "success">Анкета заполнена</div>
+		<script>
+			function fillForm() {
+				var newFirstName = document.getElementById('newFirstName').value;
+				var newAge = document.getElementById('newAge').value;
+				var checkbox = document.getElementById('checkbox').checked;
+
+				if(/[^А-яЁёA-z\. ]/.test(newFirstName)||newFirstName==""){
+					alert("Не корректно, Введите заново имя");
+				}
+
+			if(!newAge.match(/^[0-9]+$/) || newAge <=0) 
+			{
+				alert('Возраст должен быть больше или равен 0');
+				return;
+			}
+
+			if(!checkbox) 
+			{
+				alert('Необходимо согласитсья с условиями');
+				return;
+			}
+
+			document.getElementById('firstName').innerHTML = newFirstName;
+			document.getElementById('age').innerHTML = newAge;
+			document.getElementById('form').style.display = 'none';
+			document.getElementById('success').style.display = 'block';
+			}
+		</script>
+	</body>
+</html>
